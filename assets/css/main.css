@@ -411,6 +411,17 @@ h6 {
   }
 }
 
+  .hidden {
+    width: auto;
+    background-color: var(--color-primary);
+    
+  }
+
+  .hidden a,
+  .hidden a:hover{
+    color: var(--color-primary)
+  }
+
 @media (min-width: 1280px) {
 
   .mobile-nav-show,
@@ -1109,6 +1120,7 @@ h6 {
 
 .contact .php-email-form button[type=submit]:hover {
   background: #9c3066;
+  color: white;
 }
 
 @keyframes animate-loading {
@@ -1181,6 +1193,7 @@ h6 {
 
 .hero .btn-get-started:hover {
   background: #79264f;
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -1213,6 +1226,15 @@ h6 {
 
 .screen .php-login-form {
   width: 100%;
+}
+
+.screen .php-login-form input {
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 14px;
+  background-color: var(--color-secondary);
+  border: 1px solid #2e3133;
+  color: #000;
 }
 
 .screen .php-login-form .form-group {
@@ -1276,6 +1298,7 @@ h6 {
 
 .screen .php-login-form button[type=submit]:hover {
   background: #9c3066;
+  color: white;
 }
 
 /*--------------------------------------------------------------
