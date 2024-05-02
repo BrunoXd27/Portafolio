@@ -409,71 +409,6 @@ h6 {
   .navbar li:hover>a {
     color: rgb(78, 78, 78);
   }
-
-  .navbar .dropdown ul {
-    display: block;
-    position: absolute;
-    left: 14px;
-    top: calc(100% + 30px);
-    margin: 0;
-    padding: 10px 0;
-    z-index: 99;
-    opacity: 0;
-    visibility: hidden;
-    background: var(--color-secondary);
-    transition: 0.3s;
-    border-radius: 4px;
-  }
-
-  .navbar .dropdown ul li {
-    min-width: 200px;
-  }
-
-  .navbar .dropdown ul a {
-    padding: 10px 20px;
-    font-size: 15px;
-    text-transform: none;
-    font-weight: 400;
-  }
-
-  .navbar .dropdown ul a i {
-    font-size: 12px;
-  }
-
-  .navbar .dropdown ul a:hover,
-  .navbar .dropdown ul .active:hover,
-  .navbar .dropdown ul li:hover>a {
-    color: #fff;
-  }
-
-  .navbar .dropdown:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  }
-
-  .navbar .dropdown .dropdown ul {
-    top: 0;
-    left: calc(100% - 30px);
-    visibility: hidden;
-  }
-
-  .navbar .dropdown .dropdown:hover>ul {
-    opacity: 1;
-    top: 0;
-    left: 100%;
-    visibility: visible;
-  }
-}
-
-@media (min-width: 1280px) and (max-width: 1366px) {
-  .navbar .dropdown .dropdown ul {
-    left: -90%;
-  }
-
-  .navbar .dropdown .dropdown:hover>ul {
-    left: -100%;
-  }
 }
 
 @media (min-width: 1280px) {
@@ -517,13 +452,23 @@ h6 {
     justify-content: space-between;
     padding: 10px 20px;
     font-family: var(--font-primary);
-    font-size: 13px;
     text-transform: uppercase;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.5);
     letter-spacing: 1px;
     white-space: nowrap;
     transition: 0.3s;
+  }
+
+  .navbar .login,
+  .navbar .login:focus {
+
+    font-weight: 400;
+    color: var(--color-primary)
+  }
+
+  .navbar li:hover .loing>a {
+    color: var(--color-primary);
   }
 
   .navbar a i,
@@ -538,21 +483,6 @@ h6 {
   .navbar .active:focus,
   .navbar li:hover>a {
     color: #fff;
-  }
-
-  .navbar .dropdown ul,
-  .navbar .dropdown .dropdown ul {
-    position: static;
-    display: none;
-    padding: 10px 0;
-    margin: 10px 20px;
-    transition: all 0.5s ease-in-out;
-    border: 1px solid black;
-  }
-
-  .navbar .dropdown>.dropdown-active,
-  .navbar .dropdown .dropdown>.dropdown-active {
-    display: block;
   }
 
   .mobile-nav-show {
@@ -1257,6 +1187,95 @@ h6 {
   .hero h2 {
     font-size: 32px;
   }
+}
+
+.admin{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary);
+}
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.forms{
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen .php-login-form {
+  width: 100%;
+}
+
+.screen .php-login-form .form-group {
+  padding-bottom: 8px;
+}
+
+.screen .php-login-form .error-message {
+  display: none;
+  color: #000;
+  background: #df1529;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.screen .php-login-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.screen .php-login-form .loading {
+  display: none;
+  background: var(--color-secondary);
+  text-align: center;
+  padding: 15px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.screen .php-login .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--color-primary);
+  border-top-color: var(--color-secondary);
+  animation: animate-loading 1s linear infinite;
+}
+
+.screen .php-login input {
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 14px;
+  background-color: var(--color-secondary);
+  border: 1px solid #2e3133;
+  color: #000;
+}
+
+.screen .php-login input {
+  height: 44px;
+}
+
+.screen .php-login-form button[type=submit] {
+  background: var(--color-primary);
+  border: 0;
+  padding: 10px 35px;
+  color: #000;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.screen .php-login-form button[type=submit]:hover {
+  background: #9c3066;
 }
 
 /*--------------------------------------------------------------
