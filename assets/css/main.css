@@ -103,7 +103,26 @@ h6 {
   position: relative;
 }
 
+.page-edit {
+  padding: 30px 0 15px 0;
+  min-height: 30vh;
+  position: relative;
+}
+
+.page-section {
+  padding: 60px 0 30px 0;
+  min-height: 30vh;
+  position: relative;
+}
+
 .page-header h2 {
+  font-size: 56px;
+  font-weight: 500;
+  color: #000;
+  font-family: var(--font-secondary);
+}
+
+.page-edit h2{
   font-size: 56px;
   font-weight: 500;
   color: #000;
@@ -113,6 +132,7 @@ h6 {
 @media (max-width: 768px) {
   .page-header h2 {
     font-size: 36px;
+    padding-top: 30px;
   }
 }
 
@@ -479,8 +499,9 @@ h6 {
     color: var(--color-primary)
   }
 
-  .navbar li:hover .loing>a {
+  .navbar li:hover .login>a {
     color: var(--color-primary);
+
   }
 
   .navbar a i,
@@ -585,7 +606,15 @@ h6 {
   border-radius: 10px;
 }
 
+.gallerty .video-gallery {
+  width: 100%;
+}
+
 .gallery .gallery-item img {
+  transition: 0.3s;
+}
+
+.gallery .gallery-item video {
   transition: 0.3s;
 }
 
@@ -630,6 +659,10 @@ h6 {
   transform: scale(1.1);
 }
 
+.gallery .gallery-item:hover video {
+  transform: scale(1.1);
+}
+
 .glightbox-clean .gslide-description {
   background: #222425;
 }
@@ -643,6 +676,10 @@ h6 {
 # Gallery Single Section
 --------------------------------------------------------------*/
 .gallery-single .portfolio-details-slider img {
+  width: 100%;
+}
+
+.gallery-single .portfolio-details-slider video {
   width: 100%;
 }
 
@@ -947,23 +984,28 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 .video-container {
-  max-width: 100%;
-  min-width: 60vh;
-  min-height: 30vh;
   background-size: cover;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0 0 30px 0;
 }
 
 .video {
-  width: 75%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   display: grid;
   place-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-gallery{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .categories {
@@ -999,7 +1041,6 @@ h6 {
 .categories li:hover > a {
   color: rgb(78, 78, 78);
 }
-
 
 @media (max-width: 1279px) {
   .categories a,
@@ -1095,8 +1136,29 @@ h6 {
   margin-top: 10px;
 }
 
+.category-edit {
+  display: flex;
+  align-items: center;  
+  padding-left: 10px;
+}
+
+.category-edit h2 {
+  padding: 30px 15px 30px 0px;
+  font-size: 1.5rem;
+}
+
+.description-edit {
+  list-style: none;
+}
+
 .admin{
   position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary);
+}
+
+.admin-page{
   width: 100%;
   height: 100%;
   background-color: var(--color-primary);
@@ -1116,6 +1178,10 @@ h6 {
   justify-content: center;
   align-items: center;
 }
+
+/*--------------------------------------------------------------
+# Forms log in
+--------------------------------------------------------------*/
 
 .screen .php-login-form {
   width: 100%;
@@ -1181,7 +1247,91 @@ h6 {
 }
 
 .screen .php-login-form button[type=submit] {
+  background: var(--color-default);
+  border: 0;
+  padding: 10px 35px;
+  color: #000;
+  transition: 0.4s;
+  border-radius: 10px;
+}
+
+.screen .php-login-form button[type=submit]:hover {
+  background: #9c3066;
+  color: white;
+}
+
+/*--------------------------------------------------------------
+# Forms edit description
+--------------------------------------------------------------*/
+
+.php-edit-form .form-group {
+  padding-bottom: 8px;
+}
+
+.php-edit-form .error-message {
+  display: none;
+  color: #000;
+  background: #df1529;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.php-edit-form .error-message br+br {
+  margin-top: 25px;
+}
+
+.php-edit-form .sent-message {
+  display: none;
+  color: #000;
   background: var(--color-primary);
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.php-edit-form .loading {
+  display: none;
+  background: var(--color-secondary);
+  text-align: center;
+  padding: 15px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.php-edit-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--color-primary);
+  border-top-color: var(--color-secondary);
+  animation: animate-loading 1s linear infinite;
+}
+
+.php-edit-form input,
+.php-edit-form textarea {
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 14px;
+  background-color: var(--color-secondary);
+  border: 1px solid #2e3133;
+  color: #000;
+}
+
+.php-edit-form input:hover{
+  background-color: #9c3066;
+  color:var(--color-default);
+  transition: 0.4s;
+}
+
+.php-edit-form textarea {
+  padding: 10px 12px;
+}
+
+.php-edit-form button[type=submit] {
+  background: var(--color-default);
   border: 0;
   padding: 10px 35px;
   color: #000;
@@ -1189,7 +1339,7 @@ h6 {
   border-radius: 4px;
 }
 
-.screen .php-login-form button[type=submit]:hover {
+.php-edit-form button[type=submit]:hover {
   background: #9c3066;
   color: white;
 }
@@ -1202,6 +1352,11 @@ h6 {
   padding: 30px 0;
   font-size: 14px;
   background-image: linear-gradient(to top, #fda0cf, #ffb4da, #facae2, #fff);
+}
+.retoof {
+  padding: 30px 0;
+  font-size: 14px;
+  background-image: linear-gradient(to bottom, #fda0cf, #ffb4da, #facae2, #fff);
 }
 
 .footer .copyright {
@@ -1218,4 +1373,40 @@ h6 {
 
 .footer .credits a {
   color: var(--color-primary);
+}
+
+/*---------------------------------------------------------------
+# Switch
+---------------------------------------------------------------*/
+
+.switch-button {
+  display: inline-block;
+}
+.switch-button .switch-button__checkbox {
+  display: none;
+}
+.switch-button .switch-button__label {
+  background-color: red;
+  width: 2.5rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+  display: inline-block;
+  position: relative;
+}
+.switch-button .switch-button__label:before {
+  transition: .2s;
+  display: block;
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: white;
+  content: '';
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 0px 1px black;
+}
+.switch-button .switch-button__checkbox:checked + .switch-button__label {
+  background-color: greenyellow;
+}
+.switch-button .switch-button__checkbox:checked + .switch-button__label:before {
+  transform: translateX(1rem);
 }
