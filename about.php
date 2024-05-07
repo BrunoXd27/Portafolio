@@ -45,7 +45,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <a href="index.php" class="logo d-flex align-items-center  me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <!--<i class="bi bi-camera"></i> -->
@@ -55,9 +55,9 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="about.html" class="active">Acerca de mi</a></li>
-          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="index.php">Inicio</a></li>
+          <li><a href="about.php" class="active">Acerca de mi</a></li>
+          <li><a href="contact.php">Contacto</a></li>
           <li><a class="login" href="login.html"><i class="bi bi-bucket-fill"></i></a></li>
         </ul>
       </nav><!-- .navbar -->
