@@ -1,3 +1,12 @@
+<?php
+include('qrys\videoPortada.php');
+
+$vPortada = refVideoPortada();
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -55,9 +64,9 @@
   
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="about.html">Acerca de mi</a></li>
-            <li><a href="contact.html" class="active">Contacto</a></li>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="about.php">Acerca de mi</a></li>
+            <li><a href="contact.php" class="active">Contacto</a></li>
             <li><a class="login" href="login.html"><i class="bi bi-bucket-fill"></i></a></li>
           </ul>
         </nav><!-- .navbar -->
@@ -98,11 +107,21 @@
         <section id="gallery" class="gallery">
 
             <div class="category">
-                <h2>Subir o cambiar un video</h2>
-                <form action="forms/edit-description.php" method="post" role="form" class="php-edit-form" enctype="multipart/form-data">
+              <h2>Subir o cambiar un video</h2>
+
+              <form action="forms/edit_presentacion.php" method="post" role="form" class="php-edit-form" enctype="multipart/form-data">
                 <input type="file" name="video" accept="video/*">
                 <input type="submit" value="Subir">
-                </form>
+              </form>
+
+                <div id="video-container" class="video-container d-flex justify-content-center" >
+                  <div>
+                    <video autoplay controls muted loop class="video">
+                      <source src="<?php echo $vPortada;?>" type="video/mp4">
+                    <!-- <source src="assets/img/gallery/Portafolio-animado.mp4" type="video/mp4"> -->
+                    </video>
+                  </div>
+                </div>    
             </div>
 
             <div class="category-edit"><h2 id="ilus">Ilustraci&oacute;n</h2> 

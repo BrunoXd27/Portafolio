@@ -1,3 +1,10 @@
+<?php
+include('qrys\videoPortada.php');
+
+$vPortada = refVideoPortada();
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -91,7 +98,9 @@
     <div id="video-container" class="video-container d-flex justify-content-center" >
       <div>
       <video autoplay controls muted loop class="video">
-          <source src="assets/img/gallery/Portafolio-animado.mp4" type="video/mp4">
+        <source src="<?php echo $vPortada;?>" type="video/mp4">
+
+        <!-- <source src="assets/img/gallery/Portafolio-animado.mp4" type="video/mp4"> -->
       </video>
       </div>
     </div>
