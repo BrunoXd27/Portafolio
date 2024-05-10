@@ -53,13 +53,4 @@ if(isset($_FILES["video"]) AND is_uploaded_file($_FILES["video"]["tmp_name"])){
 
 
 
-
-
-
-
-
-
-
-
-
 ?>
