@@ -122,7 +122,7 @@ $result = perfil();
             <img src="<?php echo $foto; ?>" class="img-fluid" alt="">
           </div>
           <div class="col-lg-5 content">
-            <h2>Professional Photographer from New York</h2>
+            <h2>Professional from Mexico</h2>
             <p class="py-3">
               <?php echo $descripcion; ?>
             </p>
