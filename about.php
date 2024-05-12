@@ -1,3 +1,10 @@
+<?php
+include ('qrys\fotoPerfil.php');
+
+$result = perfil();
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,8 +23,11 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -90,26 +100,47 @@
     <section id="about" class="about">
       <div class="container">
 
+        <?php
+        if ($result->num_rows > 0) {
+          // Output data of each row
+          while ($row = $result->fetch_assoc()) {
+            $edad = $row["edad_art"];
+            $estudios = $row["estudios_art"];
+            $email = $row["email_art"];
+            $descripcion = $row["descripcion_art"];
+            $dispo = $row["disponibilidad_art"];
+            $foto = $row["foto_art"];
+          }
+        } else {
+          echo "0 resultados";
+        }
+
+        ?>
+
         <div class="row gy-4 justify-content-center">
           <div class="col-lg-4">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+            <img src="<?php echo $foto; ?>" class="img-fluid" alt="">
           </div>
           <div class="col-lg-5 content">
             <h2>Professional Photographer from New York</h2>
             <p class="py-3">
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-              Recusandae est praesentium consequatur eos voluptatem. Vitae dolores aliquam itaque odio nihil. Neque ut neque ut quae voluptas. Maxime corporis aut ut ipsum consequatur. Repudiandae sunt sequi minus qui et. Doloribus molestiae officiis.
-              Soluta eligendi fugiat omnis enim. Numquam alias sint possimus eveniet ad. Ratione in earum eum magni totam.
+              <?php echo $descripcion; ?>
             </p>
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Sitio web:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span>21</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Estudios:</strong> <span>Licenciatura en dise&ntilde;o multimedia y arte digital</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Disponibilidad:</strong> <span>Quiero chambear</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Sitio web:</strong> <span>Portafolio.com</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span><?php echo $edad; ?></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Estudios:</strong>
+                    <span><?php echo $estudios; ?></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span><?php echo $email; ?></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Disponibilidad:</strong>
+                    <span><?php if ($dispo == 1) {
+                      echo "Quiero Chambear";
+                    } else {
+                      echo "No quiero chambear";
+                    } ?></span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -137,7 +168,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader">
     <div class="line"></div>

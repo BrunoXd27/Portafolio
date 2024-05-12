@@ -2,8 +2,6 @@
 
 include ("conBD.php");
 
-echo '\assets\img\ilustraciones' . '\\' . $_FILES["imagen"]["name"];
-
 
 if (file_exists('..\assets\img\ilustraciones' . '\\' . $_FILES["imagen"]["name"])) {
     

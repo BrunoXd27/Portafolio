@@ -1,7 +1,7 @@
 <?php
 function conexion(){
     // Conexión a la base de datos
-    $servername = "localhost:3309";
+    $servername = "127.0.0.1:3308";
     $username = "root";
     $password = "";
     $dbname = "portafolio_karla";
@@ -17,4 +17,5 @@ function conexion(){
     }
 
 }
+
 ?>

@@ -1,5 +1,7 @@
 <?php
 include ('qrys\videoPortada.php');
+include ('qrys\fotoPerfil.php');
+
 
 $vPortada = refVideoPortada();
 
@@ -164,45 +166,33 @@ $vPortada = refVideoPortada();
       <div class="container-fluid Design_personaje">
         <div class="row gy-4 justify-content-center">
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-5.jpg" title="Gallery 5" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
+          <?php
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-6.jpg" title="Gallery 6" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
+          $directorio = "assets\img\diseñoPersonaje";
+          $archivos = scandir($directorio);
+          foreach ($archivos as $archivo) {
+            if ($archivo != "." && $archivo != "..") {
+              $rutaArchivo = $directorio . DIRECTORY_SEPARATOR . $archivo;
+              ?>
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-7.jpg" title="Gallery 7" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-8.jpg" title="Gallery 8" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
+              <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="gallery-item h-100">
+                  <!-- <img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""> -->
+                  <img src="<?php echo $rutaArchivo; ?>" class="img-fluid" alt="">
+                  <div class="gallery-links d-flex align-items-center justify-content-center">
+                    <a href="<?php echo $rutaArchivo; ?>" title="Gallery 1" class="glightbox preview-link"><i
+                        class="bi bi-arrows-angle-expand"></i></a>
+                    <!-- <a href="forms\eliminar_imagen_Cat.php" title="Gallery 5" class="glightbox preview-link"><i -->
+                    <a href="forms\eliminar_imagen_Cat.php?dato=<?php echo $rutaArchivo ?>"><i class="bi bi-x-lg"></i></a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div><!-- End Gallery Item -->
+
+              <?php
+            }
+          }
+          ?>
 
         </div>
       </div>
@@ -213,33 +203,38 @@ $vPortada = refVideoPortada();
       <div class="container-fluid Edicion_video">
         <div class="row gy-4 justify-content-center">
 
-          <div class="col-xl-6 col-lg-4 col-md-6">
-            <div class="gallery-item h-100 d-flex align-items-center">
-              <div>
-                <video class="video-gallery">
-                  <source src="assets/img/gallery/KuruKuru.mp4" type="video/mp4" class="img-fluid">
-                </video>
-              </div>
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/KuruKuru.mp4" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
+          <?php
 
-          <div class="col-xl-6 col-lg-4 col-md-6">
-            <div class="gallery-item h-100 d-flex align-items-center">
-              <div>
-                <video class="video-gallery">
-                  <source src="assets/img/gallery/KuruKuru.mp4" type="video/mp4" class="img-fluid">
-                </video>
-              </div>
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/KuruKuru.mp4" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
+          $directorio2 = "assets\img\\editVideo";
+          $archivos = scandir($directorio2);
+          foreach ($archivos as $archivo) {
+            if ($archivo != "." && $archivo != "..") {
+              $rutaArchivo = $directorio2 . DIRECTORY_SEPARATOR . $archivo;
+              ?>
+
+
+              <div class="col-xl-6 col-lg-4 col-md-6">
+                <div class="gallery-item h-100 d-flex align-items-center">
+                  <div>
+                    <video class="video-gallery">
+                      <source src="<?php echo $rutaArchivo; ?>" type="video/mp4" class="img-fluid">
+                    </video>
+                  </div>
+                  <div class="gallery-links d-flex align-items-center justify-content-center">
+                    <a href="<?php echo $rutaArchivo; ?>" class="glightbox preview-link"><i
+                        class="bi bi-arrows-angle-expand"></i></a>
+
+                  </div>
+                </div>
+              </div><!-- End Gallery Item -->
+
+
+
+
+              <?php
+            }
+          }
+          ?>
 
         </div>
       </div>
@@ -250,35 +245,37 @@ $vPortada = refVideoPortada();
       <div class="container-fluid Animacion">
         <div class="row gy-4 justify-content-center">
 
-          <div class="col-xl-6 col-lg-4 col-md-6">
-            <div class="gallery-item h-100 d-flex align-items-center">
-              <div>
-                <video class="video-gallery">
-                  <source src="assets/img/gallery/KuruKuru.mp4" type="video/mp4" class="img-fluid">
-                </video>
-              </div>
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/KuruKuru.mp4" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
+          <?php
 
-          <div class="col-xl-6 col-lg-4 col-md-6">
-            <div class="gallery-item h-100 d-flex align-items-center">
-              <div>
-                <video class="video-gallery">
-                  <source src="assets/img/gallery/KuruKuru.mp4" type="video/mp4" class="img-fluid">
-                </video>
-              </div>
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/KuruKuru.mp4" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
+          $directorio2 = "assets\img\\Animacion";
+          $archivos = scandir($directorio2);
+          foreach ($archivos as $archivo) {
+            if ($archivo != "." && $archivo != "..") {
+              $rutaArchivo = $directorio2 . DIRECTORY_SEPARATOR . $archivo;
+              ?>
+              <div class="col-xl-6 col-lg-4 col-md-6">
+                <div class="gallery-item h-100 d-flex align-items-center">
+                  <div>
+                    <video class="video-gallery">
+                      <source src="<?php echo $rutaArchivo; ?>" type="video/mp4" class="img-fluid">
+                    </video>
+                  </div>
+                  <div class="gallery-links d-flex align-items-center justify-content-center">
+                    <a href="<?php echo $rutaArchivo; ?>" class="glightbox preview-link"><i
+                        class="bi bi-arrows-angle-expand"></i></a>
+                  </div>
+                </div>
+              </div><!-- End Gallery Item -->
+
+              <?php
+            }
+          }
+          ?>
+
 
         </div>
+      </div>
+      </div>
       </div>
 
     </section><!-- End Gallery Section -->

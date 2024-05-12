@@ -6,7 +6,7 @@ $vPortada = refVideoPortada();
 
 /* $directorioAnimacion = "..\assets\img\ilustraciones";
 $archivos = scandir($directorioAnimacion); */
- 
+
 
 ?>
 
@@ -144,131 +144,174 @@ $archivos = scandir($directorioAnimacion); */
 
       <!-- ************************************************************************** -->
 
-    
+
       <div class="container-fluid Ilustracion">
         <div class="row gy-4 justify-content-center">
           <?php
 
-          $directorio = "assets\img\ilustraciones";        
+          $directorio = "assets\img\ilustraciones";
           $archivos = scandir($directorio);
           foreach ($archivos as $archivo) {
             if ($archivo != "." && $archivo != "..") {
               $rutaArchivo = $directorio . DIRECTORY_SEPARATOR . $archivo;
-          ?>
+              ?>
 
 
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <!-- <img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""> -->
-              <img src="<?php echo $rutaArchivo;?>" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="<?php echo $rutaArchivo;?>" title="Gallery 1" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
+              <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="gallery-item h-100">
+                  <!-- <img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""> -->
+                  <img src="<?php echo $rutaArchivo; ?>" class="img-fluid" alt="">
+                  <div class="gallery-links d-flex align-items-center justify-content-center">
+                    <a href="<?php echo $rutaArchivo; ?>" title="Gallery 1" class="glightbox preview-link"><i
+                        class="bi bi-arrows-angle-expand"></i></a>
                     <!-- <a href="forms\eliminar_imagen_Cat.php" title="Gallery 5" class="glightbox preview-link"><i -->
-                    <a href="forms\eliminar_imagen_Cat.php?dato=<?php echo $rutaArchivo?>"><i
-                    class="bi bi-x-lg"></i></a>
+                    <a href="forms\eliminar_imagen_Cat.php?dato=<?php echo $rutaArchivo ?>"><i class="bi bi-x-lg"></i></a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <?php 
-          }
+              <?php
             }
+          }
           ?>
 
         </div>
       </div>
 
-      
+
 
       <!-- **************************************************************** -->
 
       <div class="category-edit">
         <h2 id="design">Dise&ntilde;o de personaje</h2>
-        <form action="forms/edit-description.php" method="post" role="form" class="php-edit-form"
+        <form action="forms/edit_DPersonaje.php" method="post" role="form" class="php-edit-form"
           enctype="multipart/form-data">
-          <input type="file" name="imagen" accept="image/*">
+          <input type="file" name="imagen2" accept="image/*">
           <input type="submit" value="Subir">
         </form>
       </div>
 
       <div class="container-fluid Design_personaje">
         <div class="row gy-4 justify-content-center">
-          
-          <!-- End Gallery Item -->
-          <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="gallery-item h-100">
-              <img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt="">
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/gallery-5.jpg" title="Gallery 5" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="assets/img/gallery/gallery-5.jpg" title="Gallery 5" class="glightbox preview-link"><i
-                    class="bi bi-x-lg"></i></a>
+
+          <?php
+
+          $directorio = "assets\img\diseñoPersonaje";
+          $archivos = scandir($directorio);
+          foreach ($archivos as $archivo) {
+            if ($archivo != "." && $archivo != "..") {
+              $rutaArchivo = $directorio . DIRECTORY_SEPARATOR . $archivo;
+              ?>
+
+
+              <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="gallery-item h-100">
+                  <!-- <img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt=""> -->
+                  <img src="<?php echo $rutaArchivo; ?>" class="img-fluid" alt="">
+                  <div class="gallery-links d-flex align-items-center justify-content-center">
+                    <a href="<?php echo $rutaArchivo; ?>" title="Gallery 1" class="glightbox preview-link"><i
+                        class="bi bi-arrows-angle-expand"></i></a>
+                    <!-- <a href="forms\eliminar_imagen_Cat.php" title="Gallery 5" class="glightbox preview-link"><i -->
+                    <a href="forms\eliminar_imagen_Cat.php?dato=<?php echo $rutaArchivo ?>"><i class="bi bi-x-lg"></i></a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+
+              <?php
+            }
+          }
+          ?>
 
         </div>
       </div>
 
       <div class="category-edit">
         <h2 id="edition">Edici&oacute;n de video</h2>
-        <form action="forms/edit-description.php" method="post" role="form" class="php-edit-form"
+        <form action="forms\edit_EditVideo.php" method="post" role="form" class="php-edit-form"
           enctype="multipart/form-data">
-          <input type="file" name="imagen" accept="image/*">
+          <input type="file" name="video2" accept="video/*">
           <input type="submit" value="Subir">
         </form>
       </div>
       <div class="container-fluid Edicion_video">
         <div class="row gy-4 justify-content-center">
 
-          <div class="col-xl-6 col-lg-4 col-md-6">
-            <div class="gallery-item h-100 d-flex align-items-center">
+          <?php
 
-              <div>
-                <video class="video-gallery">
-                  <source src="assets/img/gallery/KuruKuru.mp4" type="video/mp4" class="img-fluid">
-                </video>
-              </div>
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/KuruKuru.mp4" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="assets/img/gallery/gallery-5.jpg" title="Gallery 5" class="glightbox preview-link"><i
-                    class="bi bi-x-lg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
+          $directorio2 = "assets\img\\editVideo";
+          $archivos = scandir($directorio2);
+          foreach ($archivos as $archivo) {
+            if ($archivo != "." && $archivo != "..") {
+              $rutaArchivo = $directorio2 . DIRECTORY_SEPARATOR . $archivo;
+              ?>
+
+
+              <div class="col-xl-6 col-lg-4 col-md-6">
+                <div class="gallery-item h-100 d-flex align-items-center">
+                  <div>
+                    <video class="video-gallery">
+                      <source src="<?php echo $rutaArchivo; ?>" type="video/mp4" class="img-fluid">
+                    </video>
+                  </div>
+                  <div class="gallery-links d-flex align-items-center justify-content-center">
+                    <a href="<?php echo $rutaArchivo; ?>" class="glightbox preview-link"><i
+                        class="bi bi-arrows-angle-expand"></i></a>
+                    <a href="forms\elim_videoCat.php?dato=<?php echo $rutaArchivo ?>"><i class="bi bi-x-lg"></i></a>
+                  </div>
+                </div>
+              </div><!-- End Gallery Item -->
+
+
+
+
+              <?php
+            }
+          }
+          ?>
 
         </div>
       </div>
 
       <div class="category-edit">
         <h2 id="animation">Animaci&oacute;n</h2>
-        <form action="forms/edit-description.php" method="post" role="form" class="php-edit-form"
+        <form action="forms\edit_Animacion.php" method="post" role="form" class="php-edit-form"
           enctype="multipart/form-data">
-          <input type="file" name="imagen" accept="image/*">
+          <input type="file" name="video2" accept="video/*">
           <input type="submit" value="Subir">
         </form>
       </div>
-      
+
       <div class="container-fluid Animacion">
         <div class="row gy-4 justify-content-center">
 
-          <div class="col-xl-6 col-lg-4 col-md-6">
-            <div class="gallery-item h-100 d-flex align-items-center">
-              <div>
-                <video class="video-gallery">
-                  <source src="assets/img/gallery/KuruKuru.mp4" type="video/mp4" class="img-fluid">
-                </video>
-              </div>
-              <div class="gallery-links d-flex align-items-center justify-content-center">
-                <a href="assets/img/gallery/KuruKuru.mp4" class="glightbox preview-link"><i
-                    class="bi bi-arrows-angle-expand"></i></a>
-                <a href="assets/img/gallery/gallery-5.jpg" title="Gallery 5" class="glightbox preview-link"><i
-                    class="bi bi-x-lg"></i></a>
-              </div>
-            </div>
-          </div><!-- End Gallery Item -->
+          <?php
+
+          $directorio2 = "assets\img\\Animacion";
+          $archivos = scandir($directorio2);
+          foreach ($archivos as $archivo) {
+            if ($archivo != "." && $archivo != "..") {
+              $rutaArchivo = $directorio2 . DIRECTORY_SEPARATOR . $archivo;
+              ?>
+              <div class="col-xl-6 col-lg-4 col-md-6">
+                <div class="gallery-item h-100 d-flex align-items-center">
+                  <div>
+                    <video class="video-gallery">
+                      <source src="<?php echo $rutaArchivo; ?>" type="video/mp4" class="img-fluid">
+                    </video>
+                  </div>
+                  <div class="gallery-links d-flex align-items-center justify-content-center">
+                    <a href="<?php echo $rutaArchivo; ?>" class="glightbox preview-link"><i
+                        class="bi bi-arrows-angle-expand"></i></a>
+                    <a href="forms\elim_videoCat.php?dato=<?php echo $rutaArchivo ?>"><i class="bi bi-x-lg"></i></a>
+                  </div>
+                </div>
+              </div><!-- End Gallery Item -->
+
+              <?php
+            }
+          }
+          ?>
+
 
         </div>
       </div>
@@ -285,13 +328,17 @@ $archivos = scandir($directorioAnimacion); */
       </div>
     </div>
 
-    <form action="forms/edit-description.php" method="post" role="form" class="php-edit-form"
+    <form action="forms\edit_about.php" method="post" role="form" class="php-edit-form"
       enctype="multipart/form-data">
       <div class="d-flex justify-content-center mt-4">
+
         <div class="col-lg-6 row">
           <ul class="description-edit">
             <li><i class="bi bi-chevron-right"></i> <strong>Foto de perfil:</strong>
-              <input type="file" name="imagen" accept="image/*">
+              <!-- <div class="col-lg-4">
+                <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+              </div> -->
+              <input type="file" name="imagen" accept="image/*" required>
             </li>
             <li><i class="bi bi-chevron-right"></i> <strong>Edad:</strong> <span>21</span>
               <div class="form-group">

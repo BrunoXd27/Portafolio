@@ -41,7 +41,7 @@ if(isset($_FILES["video"]) AND is_uploaded_file($_FILES["video"]["tmp_name"])){
 
     //echo $nombreArch;
 
-    $sql = "INSERT INTO `video` (`idVideo`, `refVideo`, `idCategoria`) VALUES (1,'$dir2',107)";    
+    $sql = "INSERT INTO `video` (`idVideo`, `refVideo`, `idCategoria`) VALUES (1,'$dir2',104)";    
 
     if ($con->query($sql) !== TRUE) {
         echo "Error al subir el video: " . $con->error;
