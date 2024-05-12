@@ -1,6 +1,5 @@
 <?php
 include ('qrys\videoPortada.php');
-include ('qrys\fotoPerfil.php');
 
 
 $vPortada = refVideoPortada();
@@ -69,7 +68,7 @@ $vPortada = refVideoPortada();
         <ul>
           <li><a href="index.html" class="active">Inicio</a></li>
           <li><a href="about.php">acerca de mi</a></li>
-          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="contact.php">Contacto</a></li>
           <li><a class="login" href="login.html"><i class="bi bi-bucket-fill"></i></a></li>
         </ul>
       </nav><!-- .navbar -->
